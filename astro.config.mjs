@@ -2,7 +2,6 @@ import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
 import solidJs from "@astrojs/solid-js"
 import tailwind from "@astrojs/tailwind"
-import vercel from "@astrojs/vercel/serverless"
 import { defineConfig } from "astro/config"
 import fs from "node:fs"
 
@@ -37,7 +36,4 @@ export default defineConfig({
 		},
 	},
 	output: "hybrid",
-	adapter: vercel({
-		functionPerRoute: false,
-	}),
 })
