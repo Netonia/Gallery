@@ -1,0 +1,9 @@
+dist/
+node_modules/
+pnpm-lock.yaml
+.netlify/
+.vercel/
+.astro/
+public/_redirects
+public/_headers
+src/content/blog/*.mdx
