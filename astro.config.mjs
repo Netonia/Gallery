@@ -35,5 +35,4 @@ export default defineConfig({
 			noExternal: ["smartypants"],
 		},
 	},
-	output: "hybrid",
 })
