@@ -18,13 +18,10 @@ if ((argvs[0] === "--p" || argvs[0] === "-path") && argvs[1]) {
 			if (current.isDirectory()) {
 				replaceUrlsInFiles(dirPath + "/" + file, arrayOfFiles)
 			} else {
-				const filePath = path.join(
-					path.dirname(import.meta.url.replace(/file\:/, "")),
-					dirPath,
-					"/",
-					file,
-				)
+				const dir = import.meta.url.replace(/file\:/, "").substring(3)
+				const filePath = path.join(path.dirname(dir), dirPath, "/", file)
 				if (extensions.includes(path.extname(filePath))) {
+					console.log(filePath)
 					let content = fs.readFileSync(filePath)
 
 					content = String(content).replace(/src="\//g, `src="${PRODUCTION_URL}`)
@@ -44,12 +41,12 @@ if ((argvs[0] === "--p" || argvs[0] === "-path") && argvs[1]) {
 		})
 	}
 
-	if (PRODUCTION_URL && process.env.NODE_ENV === "production") {
-		replaceUrlsInFiles(PUBLIC_DIR, files)
-	} else {
-		console.log("skip postbuild")
-		process.exit(0)
-	}
+	//if (PRODUCTION_URL && process.env.NODE_ENV === "production") {
+	replaceUrlsInFiles(PUBLIC_DIR, files)
+	// } else {
+	// 	console.log("skip postbuild")
+	// 	process.exit(0)
+	// }
 } else {
 	console.error('please provide a path argument "-path", "--p"')
 	process.exit(1)
