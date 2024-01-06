@@ -2,9 +2,7 @@ import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
 import solidJs from "@astrojs/solid-js"
 import tailwind from "@astrojs/tailwind"
-import relativeLinks from "astro-relative-links"
 import { defineConfig } from "astro/config"
-import fs from "node:fs"
 
 /* https://vercel.com/docs/projects/environment-variables/system-environment-variables#system-environment-variables */
 const VERCEL_PREVIEW_SITE =
@@ -22,7 +20,6 @@ export default defineConfig({
 		solidJs(),
 		mdx(),
 		sitemap(),
-		relativeLinks(),
 	],
 	markdown: {
 		shikiConfig: {
