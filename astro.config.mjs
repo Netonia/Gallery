@@ -2,7 +2,6 @@ import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
 import solidJs from "@astrojs/solid-js"
 import tailwind from "@astrojs/tailwind"
-import vercel from "@astrojs/vercel/serverless"
 import relativeLinks from "astro-relative-links"
 import { defineConfig } from "astro/config"
 import fs from "node:fs"
@@ -27,7 +26,7 @@ export default defineConfig({
 	],
 	markdown: {
 		shikiConfig: {
-			theme: JSON.parse(fs.readFileSync("./houston.theme.json", { encoding: "utf-8" })),
+			theme: "one-dark-pro",
 		},
 	},
 	image: {
@@ -38,8 +37,4 @@ export default defineConfig({
 			noExternal: ["smartypants"],
 		},
 	},
-	output: "hybrid",
-	adapter: vercel({
-		functionPerRoute: false,
-	}),
 })
