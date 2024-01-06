@@ -68,7 +68,7 @@ const categories = Array.from(ThemeCategories.keys())
 // get a list of category filters applied to the request
 const selectedCategories = Astro.url.searchParams.getAll("categories[]")
 
-// massage category data for the Filter components
+// message category data for the Filter components
 const categoryFilter: FilterGroup = {
 	title: "Categories",
 	options: categories.map((c) => ({
